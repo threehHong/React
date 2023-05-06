@@ -1,0 +1,2 @@
+JSX(JavaScript XML)
+js 파일 내부에 html을 작성하는 방법
