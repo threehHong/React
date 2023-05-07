@@ -1,0 +1,13 @@
+정리 및 암기하기(내용 수정보완하면서 이해 심화시키기)
+
+component
+
+props
+
+state
+
+React Router
+
+React Ajax 
+
+React Redux 
