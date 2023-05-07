@@ -1,0 +1,7 @@
+1. react-router-dom 설치하기
+npm install react-router-dom
+
+
+2. import하기 
+import {} from 'react-router-dom'
+ex. import {BrowserRouter, Route, Switch} from 'react-router-dom';
