@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 
 // 라우터 구현을 위해 import해야 하는 것들
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 
 
 function Home() {
@@ -44,10 +44,12 @@ function App() {
       <div> 
         <h1> React Router DOM example </h1>
 
+    {/* 4. Link
+           Link 컴포넌트와 to 속성을 통해 아래와 같은 구조로 새로고침 없이 페이지 전환 구현을 할 수 있다. */}
         <ul>
-          <li> <a href="/"> Home </a> </li>
-          <li> <a href="/topics"> Topics </a> </li>
-          <li> <a href="/contact"> Contact </a> </li>
+          <li> <Link to="/"> Home </Link> </li>
+          <li> <Link to="/topics"> Topics </Link> </li>
+          <li> <Link to="/contact"> Contact </Link> </li>
         </ul>
 
     {/* 3. Routes, Route 
