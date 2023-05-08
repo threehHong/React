@@ -1,13 +1,11 @@
 /* 1. Router란?
       사용자가 요청한 URL에 따라 해당 URL에 맞는 페이지를 보여주는 기술 */
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 
 // 라우터 구현을 위해 import해야 하는 것들
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
-
+import {BrowserRouter, Routes, Route, NavLink} from 'react-router-dom';
 
 function Home() {
   return (
@@ -22,7 +20,17 @@ function Topics() {
   return (
     <div>
       <h2> Topics </h2>
-      Topics...
+      <ul>
+        <li> <NavLink to="/topics/1"> HTML </NavLink> </li>
+        <li> <NavLink to="/topics/2"> JS </NavLink> </li>
+        <li> <NavLink to="/topics/3"> React </NavLink> </li>
+      </ul>
+
+      <Routes>
+        <Route path="/topics/1" element={<div>HTML is ...</div>} />
+        <Route path="/topics/2" element={<div>JS is ...</div>} />
+        <Route path="/topics/3" element={<div>REACT is ...</div>} />
+      </Routes>
     </div>
   )
 }
@@ -44,12 +52,14 @@ function App() {
       <div> 
         <h1> React Router DOM example </h1>
 
-    {/* 4. Link
-           Link 컴포넌트와 to 속성을 통해 아래와 같은 구조로 새로고침 없이 페이지 전환 구현을 할 수 있다. */}
+    {/* 4. Link, NavLink
+           Link 컴포넌트와 to 속성을 통해 아래와 같은 구조로 새로고침 없이 페이지 전환을 구현을 할 수 있다. 
+           
+           Link와 같은 기능, 다른 점은 클릭한 링크 태그에 active 클래스가 추가된다는 것.*/}
         <ul>
-          <li> <Link to="/"> Home </Link> </li>
-          <li> <Link to="/topics"> Topics </Link> </li>
-          <li> <Link to="/contact"> Contact </Link> </li>
+          <li> <NavLink to="/"> Home </NavLink> </li>
+          <li> <NavLink to="/topics"> Topics </NavLink> </li>
+          <li> <NavLink to="/contact"> Contact </NavLink> </li>
         </ul>
 
     {/* 3. Routes, Route 
@@ -74,3 +84,16 @@ root.render(
 );
 
 reportWebVitals();
+
+
+/* 
+
+1. 탐구 및 정리할 개념
+HashRouter
+BrowserRouter 대신 사용
+
+2. Router에 쓰이는 용어
+BrowserRouter, Routes, Route, Link, NavLink
+HashRouter,
+
+*/
