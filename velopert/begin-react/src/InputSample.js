@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 function InputSample() {
     // const [text, setText] = useState('');
@@ -8,11 +8,15 @@ function InputSample() {
         nickname: ''
     });
 
+    const nameInput = useRef();
+
     // 비구조화 할당을 통해 값 추출
     const { name, nickname } = inputs;
 
     const onChange = (e) => {
         const {value, name} = e.target; // 우선 e.target에서 name과 value를 추출
+
+        console.log(e.target);
 
         setInputs({
             ...inputs, // 기존의 input 객체를 복사한 뒤
@@ -25,6 +29,9 @@ function InputSample() {
             name: '',
             nickname: '',
         })
+
+        nameInput.current.focus();
+
     }
 
     return (
@@ -36,9 +43,9 @@ function InputSample() {
             
 
             {/* 2. 여러개의 input 상태 관리하기 */}
-            <input placeholder="이름" onChange={onChange} value={name}/>
+            <input name="name" placeholder="이름" onChange={onChange} value={name} ref={nameInput}/>
 
-            <input placeholder="닉네임" onChange={onChange} value={nickname} />
+            <input name="nickname" placeholder="닉네임" onChange={onChange} value={nickname} />
 
             <button onClick={onReset}> 초기화 </button>
             
