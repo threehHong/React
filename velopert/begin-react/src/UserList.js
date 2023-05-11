@@ -8,7 +8,7 @@ function User({user}) {
 }
 
 function UserList() {
-    const users = [
+    /* const users = [
       {
         id: 1,
         username: 'velopert',
@@ -24,13 +24,18 @@ function UserList() {
         username: 'liz',
         email: 'liz@example.com'
       }
-    ];
+    ]; */
+    
     return (
       <div>
+        {/* users를 user로 받아오는 것 */}
         {users.map(user => {
-            <User user={user} key={user.id} />
+            return <User user={user} key={user.id} />
         })}
 
+        {/* <User user={users[0]} />
+        <User user={users[1]} />
+        <User user={users[2]} /> */}
       </div>
     );
   }
