@@ -1,7 +1,17 @@
 1. hook이란
+함수형 컴포넌트에서 상태(state)와 라이프 사이클 메소드(lifecycle method)와 같은 기능을 사용
+할 수 있게 하는 기술(클래스형 컴포넌트에서만 가능했던 기술)
 
 
 
-2. useRef
+2. hook의 특징
+use로 시작한다.
+
+
+
+3. hook의 종류와 기능
+useState, useEffect, useContext, useReducer, useCallback, useMemo, useRef, useImperativeHandle, useLayoutEffect, useDebugValue
+
+useRef
 DOM 선택
 컴포넌트 안에서 조회 및 수정 할 수 있는 변수를 관리.
