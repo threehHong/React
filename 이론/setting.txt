@@ -1,3 +1,11 @@
+*** 기타 *** 
+1. 'react-scripts'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는
+   배치 파일이 아닙니다.
+  
+    npm install react-scripts
+    npm i react-scripts
+
+
 *** 개발 환경 셋팅 *** 
 1. https://nodejs.org/en/ 에서 LTS 버전 설치(LTS = 안정화된 버전,  Current = 최신 버전).
 2. 작업할 경로에서 vscode 실행하고 터미널에서 npx create-react-app . 입력 (.은 현재 디렉토리를 의미) 또는 npx create-react-app 폴더명
