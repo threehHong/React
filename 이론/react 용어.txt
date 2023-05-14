@@ -1,5 +1,0 @@
-1. current
-React / velopert / begin-react / src / InputSample.js 참고
-
-Ref 객체의 .current는 ref 객체가 있는 태그를 가르킨다.
-nameInput.current.focus();
