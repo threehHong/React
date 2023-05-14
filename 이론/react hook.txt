@@ -16,6 +16,6 @@ import React, { hook 이름 } from "react"; - 상단에 사용하고자 하는 h
 3. hook의 종류와 기능
 useState, useEffect, useContext, useReducer, useCallback, useMemo, useRef, useImperativeHandle, useLayoutEffect, useDebugValue
 
-useRef
-DOM 선택
-컴포넌트 안에서 조회 및 수정 할 수 있는 변수를 관리.
+- useRef
+  DOM 선
+  컴포넌트 안에서 조회 및 수정 할 수 있는 변수를 관리.
