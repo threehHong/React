@@ -52,6 +52,15 @@ function App() {
     renderCount.current = renderCount.current + 1;
   }) */
 
+
+  // 4. useRef(DOM 요소에 접근)
+  /* const inputRef = useRef();
+
+  useEffect(() => {
+    inputRef.current.focus();
+    console.log(inputRef);
+  }) */
+
   return (
     <div> 
       {/* 1. useRef(변수 관리) */}
@@ -73,12 +82,16 @@ function App() {
       {/* 3. useRef(변수 관리) */}
       {/* <p> Count: {count} </p>
       <button onClick={() => setCount(count + 1)}> 올려 </button> */}
+
+
+      {/* 4. useRef(DOM 요소에 접근) - 접근하고자 하는 태그 속성으로 ref={}를 준다 */}
+      {/* <input type="text" placeholder='username' ref={inputRef}/> 
+      <button> 로그인 </button> */}
     </div>
   );
 }
 
 export default App;
-
 
 
 /* 
@@ -92,12 +105,12 @@ export default App;
   성능에 도움을 줄 수 있다).
  
 
-- const ref = useRef("hi") -> {current: "hi"} -> ref.current = "hi"
+- const ref = useRef("hi") -> {current: "hi"} (ref 콘솔 출력시 나오는 내용) -> ref.current = "hi"
   const ref = useRef("hello") -> {current: "hello"} -> ref.current = "hello"
   const ref = useRef("world") -> {current: "world"} -> ref.current = "world"
 
 
-- 저장 공간으로서의 기능
+- 저장 공간으로서의 기능(변수 관리)
   Ref의 변화 -> No 렌더링 -> 변수들의 값 유지
   State의 변화 -> 렌더링 -> Ref의 값 유지(컴포넌트 마운트 해지 전까지)
 
@@ -112,6 +125,6 @@ export default App;
 
 
 3. 기타
-useState()가 변경되면 해당 컴포너트가 재 렌더링 된다.
+- useState()가 변경되면 해당 컴포너트가 재 렌더링 된다.
 
 */
