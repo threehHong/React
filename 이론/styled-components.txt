@@ -1,1 +1,27 @@
-npm install styled-components
+1. 셋팅
+node.js 최신 버전일 경우 
+npm install styled-components@latest
+
+
+2. 
+tagged template literal을 사용하여 css 속성이 적용된 리액트 컴포넌트를 만들어준다.
+
+const 적용하고자 하는 컴포넌트명 = styled.태그명`CSS 속성`; 
+형태로 사용.
+
+
+3. literal
+소스 코드에 지정된 값을 의미
+ex. let number = 20;에서 20이 literal
+    const myNumber = 'Hello'; 문자열 리터럴
+    const myArray = []; 배열 리터럴
+
+
+4. 조건에 따라 스타일을 적용하는 방법
+props를 사용한다
+
+
+5. 다른 컴포넌트의 스타일을 확장해서 사용하는 방법
+
+
+6. http://styled-components.com/docs
