@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div> 
-      {showTimer && <Timer />} {/* showTimer가 true일 떄만 타이머를 보여주겠다라는 */}
+      {showTimer && <Timer />} {/* 단축평가, showTimer가 true일 떄만 타이머를 보여주겠다라는 */}
       <button onClick={() => setShowTimer(!showTimer)}> Toggle Timer </button>
     </div>
   );
