@@ -19,3 +19,15 @@ useState, useEffect, useContext, useReducer, useCallback, useMemo, useRef, useIm
 - useRef
   DOM 선
   컴포넌트 안에서 조회 및 수정 할 수 있는 변수를 관리.
+
+- useEffect
+  useEffect(() => { 
+      // 출력할 내용 
+  }); - 렌더링 될 때 마다 실행.
+  
+  useEffect(() => { 
+      // 출력할 내용 
+  }, [value]); - 화면에 첫 렌더링 될 때 실행, value 값이 바뀔 때 마다 실행.
+
+  dependency array
+  clean up
