@@ -31,3 +31,9 @@ useState, useEffect, useContext, useReducer, useCallback, useMemo, useRef, useIm
 
   dependency array
   clean up
+
+
+- useMemo
+
+
+- useCallback
