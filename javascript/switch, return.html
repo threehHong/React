@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> switch, return </title>
+    </head>
+
+    <body>
+        <script>
+            /* 
+            1. return
+            함수 실행을 종료하고 함수를 빠져 나온다
+
+            2. break
+            switch나 for, while문 등을 종료하고 루프에서 빠져나온다.
+            */
+            
+            function employeeList(employee){
+                switch(employee){
+                    case 'james': return 'james는 차장입니다';
+
+                    case 'aiden': return 'aiden은 부장입니다';
+
+                    case 'tom': return 'tom은 대리입니다';
+
+                    default: return '없는 직원입니다.';   
+                }
+            }
+
+            let employeeName = employeeList('james');
+
+            console.log(employeeName);
+        </script>    
+    </body>
+</html>
