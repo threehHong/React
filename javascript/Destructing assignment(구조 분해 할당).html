@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> 구조 분해 할당(Destructing assignment) </title>
+    </head>
+    <body>
+        <script>
+            /* 
+            구조 분해 할당(Destructing assignment)
+            1. 배열이나 객체의 요소를 추출하여 변수에 할당하는 방법(구조 분해 할당은 코드를 더 간결하고 가독성이 높게 만들어주며, 요소의 선택적 할당이나 기본값 설정 등 다양한 활용이 가능)
+            
+            2. 좌변은 값을 담을 변수, 우변은 좌변에 넣을 값이나 변수.
+
+            3. https://chanhuiseok.github.io/posts/js-10/ 참고하기
+            */
+
+            
+            // 1. 배열 구조 분해
+            let  [x, y] = [1, 2];
+
+            console.log(x, y); // 1 2 출력
+            console.log(x); // 1 출력
+            
+            console.log('----------------------');
+
+            
+            // 2. 객체 구조 분해 1
+            let user = {name: 'Mike', age: 30};
+            let {name, age} = user;
+
+            console.log(name, age); // 'Mike' 30
+            console.log(name); // 'Mike'
+
+            /* 만약 구조 분해 할당을 사용하지 않는다면, 아래와 같이 직접 대입해 주어야 한다.
+            const name = user.name;
+            const age = user.age;
+            */
+
+            console.log('----------------------');
+
+
+            // 3. 객체 구조 분해 2(새로운 변수 이름으로 할당)
+                user = {name: 'Mike', age: 30};
+            let {name: userName, age: userAge} = user;
+            
+            console.log(userName , userAge); // 'Mike', 30
+
+
+            // 4. 객체 구조 분해 3(...문법, rest)
+            const student = {
+                studentName: "John",
+                age: 18,
+                memo: "Hello",
+            };
+            const { studentName, ...rest } = student;
+            console.log(studentName); // "John"
+            console.log(rest); // { age : 18, memo: 'Hello' }
+            /* student 객체 중 studentName에 값이 저장되고 나머지 age와 memo는 ...rest가 받아서 rest 변수에 객체로 저장 */
+        </script>
+    </body>
+</html>
