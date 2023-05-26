@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> spread operator(스프레드 연산자) </title>
+    </head>
+    
+    <body>
+        <script>
+            /*
+            spread operator(스프레드 연산자) 
+            배열이나 객체의 요소를 펼쳐 복사하거나 병합하는데 사용되는 문법(배열과 객체의 조작을 간편하게 할 수 있도록 도와주는 문법).
+
+            
+            */
+
+           // 1. 배열에서 병합하는 경우
+            const fruitOne = ['apple', 'banana'];
+            const fruitTwo = ['grape', 'peach'];
+
+            // 기존 방법
+            let fruitAll = fruitOne.concat(fruitTwo);
+            console.log(fruitAll); // ['apple', 'banana', 'grape', 'peach']
+
+            // 스프레드 연산자를 활용한 방법
+            fruitAll = [...fruitOne, ...fruitTwo];
+            console.log(fruitAll); // ['apple', 'banana', 'grape', 'peach']
+
+
+            // 2. 배열에서 복사사하는 경우
+            const array = [1, 2, 3];
+            const newArray = [...array];
+            console.log(newArray); // [1, 2, 3]
+
+
+            // 3. 객체에서 복사하는 경우
+            const obj = {
+                name: 'John',
+                age: 30,
+            }
+            const newObj = { ...obj };
+            console.log(newObj); // {name: 'ohn', age: 30}
+
+        </script>
+    </body>
+</html>
