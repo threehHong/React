@@ -1,40 +1,33 @@
-/* 
-Custom Hook
-1. 사용자 정의 훅
-
-2.
-function use훅이름() {
-  원하는 기능 로직 or 다른 hook
-}
-*/
-
-import './App.css';
-import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useFetch } from './component/useFetch';
 
 const Div = styled.div`
     margin: 20px;
 `;  
 
-function App() {
-  const [inputValue, setInputValue] = useState('');
-  
-  const handleChange = (e) => {
-    setInputValue(e.target.value);
-  }
+const baseUrl = "https://jsonplaceholder.typicode.com";
 
-  const handleSubmit = () => {
-    alert(inputValue);
-    setInputValue('');
-  }
+function App() {
+  const {data, fetchUrl} = useFetch(baseUrl, 'users');
 
   return (
     <Div>  
-      <h1> useInput </h1>
-      <input value={inputValue} onChange={handleChange}/>
-      <button onClick={handleSubmit}> 확인 </button>
+      <h1> useFetch </h1>
+
+      <button onClick={() => fetchUrl("users")}> Users </button>
+      <button onClick={() => fetchUrl("posts")}> Posts </button>
+      <button onClick={() => fetchUrl("todos")}> Todos </button>
+
+      <pre>{JSON.stringify(data, null, 2)}</pre>
     </Div>
   );
 }
 
 export default App;
+
+/*  
+https://jsonplaceholder.typicode.com/ - 더미 데이터 
+com/user - 유저 정보 더미 데이터.
+com/post - 게시글 더미 데이터.
+com/todo - 할일 더미 데이터.
+*/
