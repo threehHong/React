@@ -1,5 +1,6 @@
 ## useState
 
+### 문제
 ### 01. useState 훅은 무엇을 반환하나요?
 a. 배열 &nbsp;
 b. 객체 &nbsp;
@@ -45,17 +46,9 @@ c. useContext 훅을 사용하여 설정 &nbsp;
 d. defaultProps를 사용하여 설정 &nbsp;
 
 ### 정답
-01-a &nbsp; 
-02-a &nbsp;
-03-a &nbsp;
-04-c &nbsp;
-05-d &nbsp;
-06-a &nbsp;
-07-b &nbsp;
-08-b &nbsp;
+01-a &nbsp; 02-a &nbsp; 03-a &nbsp; 04-c &nbsp; 05-d &nbsp; 06-a &nbsp; 07-b &nbsp; 08-b &nbsp;
 
 ### 해설
-
 ### 01. useState 훅은 무엇을 반환하나요?
 답: a. 배열
 useState 훅은 배열을 반환합니다. 배열의 첫 번째 요소는 상태 값이고, 두 번째 요소는 상태 값을 업데이트하는 함수입니다.
