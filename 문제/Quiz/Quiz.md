@@ -45,11 +45,11 @@ c. useContext 훅을 사용하여 설정 &nbsp;
 d. defaultProps를 사용하여 설정 &nbsp;
 
 ### 정답
-01 a 
-02 a
-03 a
-04 c
-05 d
-06 a
-07 b
-08 b
+01-a &nbsp; 
+02-a &nbsp;
+03-a &nbsp;
+04-c &nbsp;
+05-d &nbsp;
+06-a &nbsp;
+07-b &nbsp;
+08-b &nbsp;
