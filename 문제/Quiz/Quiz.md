@@ -1,10 +1,10 @@
 ## useState
 
 ### 01. useState 훅은 무엇을 반환하나요?
-a. 배열
-b. 객체
-c. 함수
-d. 정수
+a. 배열 &nbsp;
+b. 객체 &nbsp;
+c. 함수 &nbsp;
+d. 정수 &nbsp;
 
 ### 02. useState 훅을 사용할 때 인자로 전달되는 값은 무엇인가요?
 a. 초기 상태
