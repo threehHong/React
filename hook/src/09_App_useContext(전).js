@@ -22,18 +22,11 @@ import { ThemeContext } from './component/context/ThemeContext';
 import { useState } from 'react';
 import './App.css';
 import Page from './component/useContext/Page';
-import { ThemeContext } from './component/context/ThemeContext';
  
 function App() {
   const [isDark, setIsDark] = useState(false);
 
-  return (
-    // Provider 컴포넌트가 감싸는 모든 하위 컴포넌트는 Provider 컴포넌트의 value에 저장된 값에 접근할 수 있다
-    <ThemeContext.Provider value={{isDark, setIsDark}}>
-      <Page/>;
-    </ThemeContext.Provider>
-  )
-  
+  return <Page isDark={isDark} setIsDark={setIsDark} />;
 
 }
 
@@ -46,7 +39,7 @@ createContext
 Context 객체를 생성하는 함수(프로바이더와 컨슈머 생성).
 Context 객체는 공유할 데이터를 담을 수 있는 공간.
 
-Provider
+provider
 전역적으로 사용될 데이터를 제공
 컨텍스트의 값을 설정하는 역할
 하위 컴포넌트에 값을 전달하기 위해 value prop을 사용
