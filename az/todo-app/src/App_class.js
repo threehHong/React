@@ -1,12 +1,13 @@
-import React, {useState} from "react"; 
+import React, {Component} from "react"; 
 import './App.css';
 
-export default function App () {
+export default class App extends Component {
+  state = {
+    todoData : [],
+    value:""
+  }
 
-  const [todoData, setTodoData] = useState([]);
-  const [value, setValue] = useState("");
-
-  const btnStyle = {
+  btnStyle = {
     color: "#fff",
     border: "none",
     padding: "5px 9px",
@@ -16,7 +17,7 @@ export default function App () {
   }
 
   // 리스트 아래 점 선 그어지게 하는 함수
-  const getStyle = (completed) => {
+  getStyle = (completed) => {
     return {
       padding: "10px",
       borderBottom: "1px #ccc dotted",
@@ -24,40 +25,42 @@ export default function App () {
     }
   }
 
-  const handleClick = (id) => {
-    let newTodoData = todoData.filter(data => data.id !== id)
+  handleClick = (id) => {
+    let newTodoData = this.state.todoData.filter(data => data.id !== id)
     console.log('newTodoData', newTodoData);
-    setTodoData(newTodoData)
+    this.setState({todoData: newTodoData});
   }
 
-  const handleChange = (e) => {
-    setValue(e.target.value)
+  handleChange = (e) => {
+    console.log('e', e.target.value);
+    this.setState({ value: e.target.value });
   }
 
-  const handleSubmit = (e) => {
+  handleSubmit = (e) => {
     e.preventDefault();
 
     // 새로운 할 일 데이터
     let newTodo = {
       id: Date.now(),
-      title: value,
+      title: this.state.value,
       completed: false,
     }
 
     // 원래 있던 할 일에 새로운 할 일 더해주기
-    setTodoData((prev) => [...prev, newTodo]);
-    setValue("")
+    this.setState({ todoData: [...this.state.todoData, newTodo], value: "" });
   }
 
-  const handlCompleteChane = (id) => {
+  handlCompleteChane = (id) => {
     let newTodoData = this.state.todoData.map(data => {
       if(data.id === id) {
         data.completed =! data.completed;
       }
       return data;
     })
-    setTodoData(newTodoData);
+    this.setState({ todoData:  newTodoData});
   }
+
+  render() {
     return (
       <div className="container">
         <div className="todoBlock">
@@ -65,18 +68,18 @@ export default function App () {
             <h1> 할 일 목록 </h1>
           </div>
 
-          {todoData.map((data) => (
-            <div style={getStyle(data.completed)} key={data.id}>
+          {this.state.todoData.map((data) => (
+            <div style={this.getStyle(data.completed)} key={data.id}>
               <p>
-                <input type="checkbox" defaultChecked={false} onChange={() => handlCompleteChane(data.id)} />
+                <input type="checkbox" defaultChecked={false} onChange={() => this.handlCompleteChane(data.id)} />
                   {data.title}
-                <button style={btnStyle} onClick={() => handleClick(data.id)}> x </button>
+                <button style={this.btnStyle} onClick={() => this.handleClick(data.id)}> x </button>
               </p>
             </div>
           ))}
 
-          <form style={{display: 'flex'}} onSubmit={handleSubmit}>
-            <input type="text" name="value" style={{ flex: "10", padding: "5px"}} placeholder="해야 할 일을 입력하세요" value={value} onChange={handleChange} />
+          <form style={{display: 'flex'}} onSubmit={this.handleSubmit}>
+            <input type="text" name="value" style={{ flex: "10", padding: "5px"}} placeholder="해야 할 일을 입력하세요" value={this.state.value} onChange={this.handleChange} />
             
             <input
               type="submit"
@@ -89,6 +92,6 @@ export default function App () {
         </div>
       </div>
     )
-  
+  }
 }
 
