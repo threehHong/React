@@ -1,0 +1,6 @@
+1. 브라우저가 그려지는 원리와 가상돔 강의 다시 보기.
+
+
+2. SPA 원리
+History API를 통해 SPA 구현
+History API는 React-Router-DOM을 통해 실행
