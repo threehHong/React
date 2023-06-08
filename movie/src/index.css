@@ -1,0 +1,39 @@
+body {
+  background-color: #22254b;
+}
+
+.app-container {
+  display: flex;
+
+  /* 전체 데이터의 width가 브라우저의 width 보다 길때 다음 줄로 내려줌 */
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.movie-container {
+  width: 250px;
+  margin: 16px;
+  background-color: #373b69;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.movie-container img {
+  max-width: 100%;
+}
+
+.movie-info {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.movie-info h4 {
+  margin: 0;
+}
+
+.movie-info span {
+  margin-left: 5px;
+}
