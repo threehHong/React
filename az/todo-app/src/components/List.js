@@ -5,7 +5,8 @@ export default function List( {todoData, setTodoData} ) {
     // props.todoData
 
     const btnStyle = {
-        color: "#fff",
+        color: "#000",
+        fontWeight: "bold",
         border: "none",
         padding: "5px 9px",
         borderRadius: "50%",
@@ -43,7 +44,7 @@ export default function List( {todoData, setTodoData} ) {
             {todoData.map((data) => (
             <div style={getStyle(data.completed)} key={data.id}>
               <p>
-                <input  type="checkbox" defaultChecked={false} onChange={() => handlCompleteChane(data.id)} />
+                <input type="checkbox" defaultChecked={false} onChange={() => handlCompleteChane(data.id)} style={{ marginRight:"6px" }} />
                   {data.title}
                 <button style={btnStyle} onClick={() => handleClick(data.id)}> x </button>
               </p>

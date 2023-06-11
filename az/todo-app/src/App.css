@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   background: aliceblue;
 }
@@ -15,3 +19,8 @@ body {
   box-shadow: -9px 17px 13px rgb(0 0 0 / 10%);
 }
 
+.title {
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
