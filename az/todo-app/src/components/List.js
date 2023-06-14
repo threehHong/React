@@ -24,11 +24,24 @@ export default function List( {todoData, setTodoData} ) {
         <div>
             {todoData.map((data) => (
             <div key={data.id}>
-              <p> 
-                <input type="checkbox" defaultChecked={false} onChange={() => handlCompleteChane(data.id)} style={{ marginRight:"6px" }} />
-                  {data.title}
-                <button onClick={() => handleClick(data.id)}> x </button>
-              </p>
+              <div className='flex items-center justify-between w-full px-4 py-1 my-2 text-gray-500 bg-gray-100 border rounded'> 
+
+                <div className='itmes-cneter' >
+                  <input 
+                    type="checkbox" 
+                    defaultChecked={data.completed} 
+                    onChange={() => handlCompleteChane(data.id)} /> {" "}
+                    
+                
+                  <span className={data.completed ? "line-through" : "undefined"}> {data.title} </span>
+                </div>
+                
+                
+                <div className='items-center'>
+                  <button onClick={() => handleClick(data.id)}> x </button> 
+                </div>               
+              
+              </div>
             </div>
           ))}
         </div>
