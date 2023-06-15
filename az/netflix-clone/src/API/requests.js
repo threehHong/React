@@ -4,5 +4,4 @@ const requests = {
     fetchTrending: `/trending/all/week`,
     fetchTopRated: `/movie/top_rated`,
     fetchActionMovies: `/discover/movie?with_genres=28`,
-    
 }
