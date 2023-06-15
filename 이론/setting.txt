@@ -35,3 +35,32 @@ chrome 웹 스토어(https://chrome.google.com/webstore/category/extensions) 접
 
 *** react 관련 사이트 ***
 https://ko.reactjs.org/
+
+
+*** React 셋팅 후 삭제 가능 한 것들 ***
+삭제할 내용
+src
+logo.svg
+reportWebVitals.js
+setupTests.js
+App.test.js
+App.css
+
+index.js 파일 안에
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals(); 
+삭제
+
+import reportWebVitals from './reportWebVitals'; 삭제
+reportWebVitals(); 및 주석 삭제
+import './index.css'; 삭제
+
+
+public 
+index.html 뺴고 전부 삭제
+
+index.html
+meta태그 뷰포트랑 title태그 사이에 있는 내용 삭제.
+<link rel="icon" href="%PUBLIC_URL%/favicon.ico" /> 삭제
