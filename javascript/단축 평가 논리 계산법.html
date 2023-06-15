@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> 단축 평가 논리 계산법 </title>
+    </head>
+    <body>
+        <script>
+            // 1. 단축 평가 논리 계산법(&& 연산자)
+            console.log(true && "hello"); // hello
+            console.log(false && "hello"); // false
+            console.log("hello" && "bye"); // bye
+            console.log(null && "hello");  // null
+            console.log(undefined && "hello"); // undefined
+            console.log('' && "hello"); // ''
+            /* && 연산자를 사용하면 앞의 값이 true일 경우 오른쪽의 코드가 실행되고 false일 경우 왼쪽의 코드가 실행된다. */
+
+            // 2. 단축 평가 논리 계산법(|| 연산자)
+            console.log(false || "hello");
+            console.log("" || "이름없다.");
+            console.log(null || "널이다~");
+            console.log(undefined || "defined 되지 않았다!");
+            console.log(1 || "음?");
+            console.log(true || "여기 안본다. ");
+            /* || 연산자를 사용하면 앞의 값이 true일 경우 왼쪽의 코드가 실행되고 false일 경우 오른쪽의 코드가 실행된다(&&와 반대). */
+        </script>
+    </body>
+</html>
