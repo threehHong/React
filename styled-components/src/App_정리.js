@@ -1,3 +1,5 @@
+//README 참고(개념 정리 해놓음).
+
 import './App.css';
 import styled from 'styled-components';
 
