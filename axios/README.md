@@ -9,10 +9,10 @@
 ## axios 코드 구조
 - axios.get(url) <br>
   .then(response => { <br>
-    // 응답 처리 <br>
+  &nbsp; // 응답 처리 <br>
   }) <br>
   .catch(error => { <br>
-    // 오류 처리 <br>
+  &nbsp; // 오류 처리 <br>
   }); <br>
 
 ## axios 사용방법
