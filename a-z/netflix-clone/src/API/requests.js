@@ -12,4 +12,3 @@ const requests = {
 
 // 다른 파일에서 requests를 사용할 수 있다.
 export default requests;
-
