@@ -7,13 +7,13 @@
 - get, post, put, delete 요청 등이 있다.
 
 ## axios 코드 구조
-- axios.get(url)
-  .then(response => {
-    // 응답 처리
-  })
-  .catch(error => {
-    // 오류 처리
-  });
+- axios.get(url) <br>
+  .then(response => { <br>
+    // 응답 처리 <br>
+  }) <br>
+  .catch(error => { <br>
+    // 오류 처리 <br>
+  }); <br>
 
 ## axios 사용방법
 - npm install axios 설치 -> import axios from 'axios'(HTTP 요청을 보내고자 하는 컴포넌트에서 axios를 import).
