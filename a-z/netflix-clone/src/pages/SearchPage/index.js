@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import axios from '../../API/axios'
 import "./SearchPage.css";
+import { useDebounce } from '../../hooks/useDebounce';
 
 export default function SearchPage() {
 
   const [searchResults, setSearchResults] = useState([]);
 
-  console.log('useLocation()', useLocation());
+  /* console.log('useLocation()', useLocation()); */
 
   const useQuery = () => {
     // useLocation을 통해 현재 URL 정보 가져올 수 있다
@@ -19,13 +20,15 @@ export default function SearchPage() {
   // q값 불러와서 searchTerm에 저장
   const searchTerm = query.get("q");
 
-  console.log('searchTerm', searchTerm);
+  /* console.log('searchTerm', searchTerm); */
+
+  const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
   useEffect(() => {
-    if(searchTerm) {
-      fetchSearchMovie(searchTerm);
+    if(debouncedSearchTerm) {
+      fetchSearchMovie(debouncedSearchTerm);
     }
-  }, [searchTerm])
+  }, [debouncedSearchTerm])
 
   const fetchSearchMovie = async (searchTerm) => {
     console.log("searchTerm", searchTerm);
@@ -36,7 +39,7 @@ export default function SearchPage() {
       console.log(request);
       setSearchResults(request.data.results);
     } catch (error) {
-      console.log("error", error);
+      console.log("error", error); 
     }
   };
 
@@ -47,7 +50,7 @@ export default function SearchPage() {
           if(movie.backdrop_path !== null && movie.media_type !== "person") {
             const movieImageUrl = "https://image.tmdb.org/t/p/w500" + movie.backdrop_path;
             return(
-              <div className='movie'>
+              <div className='movie' key={movie.id}>
                 <div
                   className='movie__column-poster'
                 >
@@ -66,7 +69,7 @@ export default function SearchPage() {
       <section className="no-results">
         <div className="no-results__text">
           <p>
-            찾고자하는 검색어"{searchTerm}"에 맞는 영화가 없습니다.
+            찾고자하는 검색어"{debouncedSearchTerm}"에 맞는 영화가 없습니다.
           </p>
         </div> 
       </section>
