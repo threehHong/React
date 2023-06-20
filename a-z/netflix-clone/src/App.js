@@ -11,7 +11,11 @@ const Layout = () => {
     <div>
       <Nav />
 
-      <Outlet />
+      <Outlet /> 
+      {/* 
+      1. 아울렛은 중첩 Route에만 사용
+      2. nav, footer 사이에 아울렛 컴포넌트 안에 route index elemetn로 지정한 MainPage 컴포넌트가 기본적으로 보여지고 그 다음 path에 url 주소창에 따라 DetailPage나 SearchPage가 보여진다.
+      */}
 
       <Footer />
     </div>

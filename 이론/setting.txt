@@ -38,13 +38,8 @@ https://ko.reactjs.org/
 
 
 *** React 셋팅 후 삭제 가능 한 것들 ***
-삭제할 내용
-src
-logo.svg
-reportWebVitals.js
-setupTests.js
-App.test.js
-App.css
+src 폴더
+App.js, index.js 빼고 전부 삭제
 
 index.js 파일 안에
 // If you want to start measuring performance in your app, pass a function
@@ -58,7 +53,7 @@ reportWebVitals(); 및 주석 삭제
 import './index.css'; 삭제
 
 
-public 
+public 폴더 
 index.html 뺴고 전부 삭제
 
 index.html

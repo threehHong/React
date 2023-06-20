@@ -92,6 +92,25 @@ export default function Row( {isLargeRow, title, id, fetchUrl} ) {
             >
 
                 <div id={id} className='row__posters'>
+              
+                    {/* <SwiperSlide>
+                        {movies.map((movie) => {
+                            return (
+                                <img
+                                key={movie.id}
+                                className={`row__poster ${isLargeRow && "row__posterLarge"}`}
+                                src={`http://image.tmdb.org/t/p/original/${
+                                    isLargeRow ? movie.poster_path : movie.backdrop_path
+                                }`}
+                                alt={movie.name}
+                                onClick={() => handleClick(movie)}
+                                />
+                            );
+                            })}
+                    </SwiperSlide> */}
+         
+
+                    {/* 소괄호 예시 */}
                     {movies.map((movie) => (
                         <SwiperSlide>
                             <img 
@@ -102,7 +121,7 @@ export default function Row( {isLargeRow, title, id, fetchUrl} ) {
                                 onClick={() => handleClick(movie)}
                             />
                         </SwiperSlide>
-                    ))}    
+                    ))}
                 </div>
             </Swiper>
 
