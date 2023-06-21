@@ -1,6 +1,0 @@
-1. swiper 설치 
-npm i swiper
-
-
-2. 공식 홈페이지 
-https://swiperjs.com/react#usage
