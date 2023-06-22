@@ -14,7 +14,10 @@ const Layout = () => {
       <Outlet /> 
       {/* 
       1. 아울렛은 중첩 Route에만 사용
-      2. nav, footer 사이에 아울렛 컴포넌트 안에 route index elemetn로 지정한 MainPage 컴포넌트가 기본적으로 보여지고 그 다음 path에 url 주소창에 따라 DetailPage나 SearchPage가 보여진다.
+      2. Outlet 컴포넌트 안에 route index elemetn로 지정한 MainPage 컴포넌트가
+				 기본적으로 보여진다.
+      3. url 끝 부분에 따라 DetailPage나 SearchPage가 보여진다
+         (:movieId일 경우 DetailPage 페이지, search일 경우 SearchPage가 보여진다).
       */}
 
       <Footer />
@@ -26,6 +29,12 @@ function App() {
   return (
     <div className="App">
       <Routes>
+        {/* 
+					nested routing 구조
+				  1. Route 컴포넌트 내부에 중첩할 Route 컴포넌트 배치.
+					2. 메인으로 보여질 부분 부모 Route 컴포넌트에 path="/" 속성 추가
+					3. 중첩 메인으로 보여질 부분 자식 Route 컴포넌트에 index element 속성 추가
+				*/}
         <Route path="/" element={<Layout />} >
           <Route index element={<MainPage />} />
           <Route path=":movieId" element={<DetailPage />} />
