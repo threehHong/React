@@ -1,3 +1,5 @@
+// Counter App - useState, onClick 이벤트.
+
 import { useState } from 'react';
 
 function Count () {
