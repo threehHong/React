@@ -2,6 +2,7 @@
 node.js 최신 버전일 경우 
 npm install styled-components@latest
 
+import styled from "styled-components";
 
 2. 
 tagged template literal을 사용하여 css 속성이 적용된 리액트 컴포넌트를 만들어준다.
