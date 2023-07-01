@@ -17,12 +17,15 @@ const countStore = createStore(reducer);
 
 
 /*********************************************  *********************************************/
+/*********************************************  *********************************************/
+/*********************************************  *********************************************/
 
 
 // 두번째 정리(이걸로 암기하기)
 /* 
 // 2. reducer() - createStore 저장된 데이터를 수정하는 함수(reducer 함수명은 자유롭게 작성).
 //    action - 함수를 부를 때 쓰는 두번째 parameter 혹은 argument
+//           - store.dispatch({ type: "MINUS" });를 통해 전달되는 데이터를 전달받는 매개 변수.
 //           - reducer와 소통하기 위한 도구 
 const reducer = (count = 0, action) => {
   if(action.type === "ADD") {
@@ -39,11 +42,7 @@ const reducer = (count = 0, action) => {
 const store = createStore(reducer);
 // console.log(store); // dispatch, subscribe, getState, replaceReduce
 
-// 3. reducer에게 action을 보내는 방법
-// store.dispatch({ type: "ADD" })
-// store.dispatch({ type: "ADD" })
-// store.dispatch({ type: "MINUS" })
-
+// 3. reducer함수의 매개변수인 action에게 데이터를 보내는 방법
 const handleAdd = () => {
   store.dispatch({ type: "ADD" });
 }
@@ -54,6 +53,9 @@ const handleMinus = () => {
 add.addEventListener("click", handleAdd);
 minus.addEventListener("click", handleMinus);
 
+// 4. getState() - reducer의 return 데이터를 가져오는 함수
+// console.log(store.getState());
+
 // 5. subscribe - store에 변화가 있을 때마다 호출되는 함수.
 const onChange = () => {
   console.log(store.getState());
@@ -61,11 +63,11 @@ const onChange = () => {
 }
 store.subscribe(onChange);
 
-// 4. getState() - reducer의 데이터를 가져오는 함수
-// console.log(store.getState());
- */
+*/
 
 
+/*********************************************  *********************************************/
+/*********************************************  *********************************************/
 /*********************************************  *********************************************/
 
 
