@@ -4,45 +4,29 @@ const add = document.getElementById("add");
 const minus = document.getElementById("minus");
 const number = document.querySelector("span");
 
+const ADD = 'ADD';
+const MINUS = 'MINUS';
+
 // 첫번째 정리
 /* 
-// reducer() - createStore에 저장된 데이터를 수정하는 함수.
-const reducer = () => {
-  return "hello"
-};
-
-// createStore() - data를 저장하는 장소 + createStore()는 reducer()를 요구한다.
-const countStore = createStore(reducer); 
-*/
-
-
-/*********************************************  *********************************************/
-/*********************************************  *********************************************/
-/*********************************************  *********************************************/
-
-
-// 두번째 정리(이걸로 암기하기)
-/* 
 // 2. reducer() - createStore 저장된 데이터를 수정하는 함수(reducer 함수명은 자유롭게 작성).
+//              - reducer 함수 내부 로직에는 주로 switch문을 사용한다.
 //    action - 함수를 부를 때 쓰는 두번째 parameter 혹은 argument
 //           - store.dispatch({ type: "MINUS" });를 통해 전달되는 데이터를 전달받는 매개 변수.
 //           - reducer와 소통하기 위한 도구 
 const reducer = (count = 0, action) => {
-  if(action.type === "ADD") {
-    return count + 1;
-  } else if (action.type === "MINUS") {
-    return count - 1;
-  } else {
-    return count;
+  switch(action.type) {
+    case "ADD": return count + 1;
+    case "MINUS": return count - 1;
+    default: return count;
   }
-
 };
 
 // 1. createStore() - data를 저장하는 함수 + createStore()는 reducer()를 요구한다(store 변수명은 자유롭게 작성).
 const store = createStore(reducer);
 // console.log(store); // dispatch, subscribe, getState, replaceReduce
 
-// 3. reducer함수의 매개변수인 action에게 데이터를 보내는 방법
+// 3. reducer함수의 매개변수인 action에게 데이터를 보내는 방법(action에 보내는 값은 반드시 객체여야 한다 + 객체명에 type을 써야한다).
 const handleAdd = () => {
   store.dispatch({ type: "ADD" });
 }
@@ -71,17 +55,15 @@ store.subscribe(onChange);
 /*********************************************  *********************************************/
 
 
-// 세번쨰 정리
+// 두번쨰 정리
 // 2. reducer() - createStore 저장된 데이터를 수정하는 함수.
 //    action - 함수를 부를 때 쓰는 두번째 parameter 혹은 argument
 //           - countModifier와 소통하기 위한 도구
 const countModifier = (count = 0, action) => {
-  if(action.type === "ADD") {
-    return count + 1;
-  } else if (action.type === "MINUS") {
-    return count - 1;
-  } else {
-    return count;
+  switch(action.type) {
+    case ADD: return count + 1;
+    case MINUS: return count - 1;
+    default: return count;
   }
 
 };
@@ -98,10 +80,10 @@ const countStore = createStore(countModifier);
 // countStore.dispatch({ type: "MINUS" })
 
 const handleAdd = () => {
-  countStore.dispatch({ type: "ADD" });
+  countStore.dispatch({ type: ADD });
 }
 const handleMinus = () => {
-  countStore.dispatch({ type: "MINUS" });
+  countStore.dispatch({ type: MINUS });
 }
 
 add.addEventListener("click", handleAdd);
