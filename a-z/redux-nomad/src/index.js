@@ -1,103 +1,80 @@
-import { createStore } from "redux";
+import {createStore} from "redux";
 
-const add = document.getElementById("add");
-const minus = document.getElementById("minus");
-const number = document.querySelector("span");
+const form = document.querySelector("form");
+const input = document.querySelector("input");
+const ul = document.querySelector("ul");
 
-const ADD = 'ADD';
-const MINUS = 'MINUS';
 
-// 첫번째 정리
-/* 
-// 2. reducer() - createStore 저장된 데이터를 수정하는 함수(reducer 함수명은 자유롭게 작성).
-//              - reducer 함수 내부 로직에는 주로 switch문을 사용한다.
-//    action - 함수를 부를 때 쓰는 두번째 parameter 혹은 argument
-//           - store.dispatch({ type: "MINUS" });를 통해 전달되는 데이터를 전달받는 매개 변수.
-//           - reducer와 소통하기 위한 도구 
-const reducer = (count = 0, action) => {
-  switch(action.type) {
-    case "ADD": return count + 1;
-    case "MINUS": return count - 1;
-    default: return count;
+const ADD_TODO = "ADD_TODO"
+const DELETE_TODO = "DELETE_TODO"
+
+const addToDo = (text) => {
+  return {
+    type: ADD_TODO, text
   }
-};
-
-// 1. createStore() - data를 저장하는 함수 + createStore()는 reducer()를 요구한다(store 변수명은 자유롭게 작성).
-const store = createStore(reducer);
-// console.log(store); // dispatch, subscribe, getState, replaceReduce
-
-// 3. reducer함수의 매개변수인 action에게 데이터를 보내는 방법(action에 보내는 값은 반드시 객체여야 한다 + 객체명에 type을 써야한다).
-const handleAdd = () => {
-  store.dispatch({ type: "ADD" });
-}
-const handleMinus = () => {
-  store.dispatch({ type: "MINUS" });
 }
 
-add.addEventListener("click", handleAdd);
-minus.addEventListener("click", handleMinus);
-
-// 4. getState() - reducer의 return 데이터를 가져오는 함수
-// console.log(store.getState());
-
-// 5. subscribe - store에 변화가 있을 때마다 호출되는 함수.
-const onChange = () => {
-  console.log(store.getState());
-  number.innerText = store.getState();  
-}
-store.subscribe(onChange);
-
-*/
-
-
-/*********************************************  *********************************************/
-/*********************************************  *********************************************/
-/*********************************************  *********************************************/
-
-
-// 두번쨰 정리
-// 2. reducer() - createStore 저장된 데이터를 수정하는 함수.
-//    action - 함수를 부를 때 쓰는 두번째 parameter 혹은 argument
-//           - countModifier와 소통하기 위한 도구
-const countModifier = (count = 0, action) => {
-  switch(action.type) {
-    case ADD: return count + 1;
-    case MINUS: return count - 1;
-    default: return count;
+const deleteTodo = id => {
+  return {
+    type: DELETE_TODO,
+    id
   }
-
-};
-
-
-// 1. createStore() - data를 저장하는 장소 + createStore()는 reducer()를 요구한다.
-const countStore = createStore(countModifier);
-// console.log(countStore); // dispatch, subscribe, getState, replaceReduce
-
-
-// 3. countModifier에게 action을 보내는 방법
-// countStore.dispatch({ type: "ADD" })
-// countStore.dispatch({ type: "ADD" })
-// countStore.dispatch({ type: "MINUS" })
-
-const handleAdd = () => {
-  countStore.dispatch({ type: ADD });
-}
-const handleMinus = () => {
-  countStore.dispatch({ type: MINUS });
 }
 
-add.addEventListener("click", handleAdd);
-minus.addEventListener("click", handleMinus);
+const reducer = (state = [], action) => {
+  console.log(action);
 
+  switch(action.type) {
+    // [...state, { text: action.text }]; 이 부분 질문하기
+    // 입력되는 내용 하위에 표시
+    // case ADD_TODO: return [...state, { text: action.text, id: Date.now() }];
+    
+    // 입력되는 내용이 상위에 표시
+    case ADD_TODO: return [{ text: action.text, id: Date.now() }, ...state];
 
-// 5. subscribe - store에 변화가 있을 때마다 호출되는 함수.
-const onChange = () => {
-  console.log(countStore.getState());
-  number.innerText = countStore.getState();  
+    case DELETE_TODO: return [];
+    default: return state;
+  }
 }
 
-countStore.subscribe(onChange);
+const store = createStore(reducer)
 
+store.subscribe(() => console.log(store.getState()))
 
-// 4. getState() - countModifier의 데이터를 가져오는 함수
-// console.log(countStore.getState());
+const dispatchAddToDo = (text) => {
+  store.dispatch(addToDo(text));
+}
+
+const dispatchDeleteTodo = (e) => {
+  // store.dispatch({ type: ADD_TODO, text});
+  const id = e.target.parentNode.id;
+  store.dispatch(deleteTodo(id))
+}
+
+const paintTodos = () => {
+  const toDos = store.getState();
+  ul.innerHTML = "";
+  toDos.forEach(toDo => {
+    const li = document.createElement("li");
+    const btn = document.createElement("button");
+    btn.innerText = "DEL";
+    btn.addEventListener("click", dispatchDeleteTodo)
+
+    li.id = toDo.id;
+    li.innerText = toDo.text;
+    li.appendChild(btn);
+    ul.appendChild(li);
+  })
+}
+
+store.subscribe(paintTodos);
+
+const onSubmit = e => {
+  e.preventDefault();
+  const toDo = input.value;
+  input.value = "";
+  dispatchAddToDo(toDo);
+}
+
+form.addEventListener("submit", onSubmit);
+
