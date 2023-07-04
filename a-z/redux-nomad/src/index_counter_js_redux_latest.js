@@ -1,3 +1,5 @@
+// index_counter_js_redux_latest.js
+
 import { createStore } from "redux";
 
 const add = document.getElementById("add");
@@ -16,6 +18,8 @@ const MINUS = 'MINUS';
 //           - reducer와 소통하기 위한 도구 
 const reducer = (count = 0, action) => {
   switch(action.type) {
+    // count + 1만 하여도 count에 count + 1 값이 저장 되는 것은 const store = createStore(reducer); 에서
+    // reducer의 반환반환 받은 값을 createStore 함수 내부에 있는 로직을 통해 count + 1 값이 count에 저장되는 것으로 생각하기.
     case "ADD": return count + 1;
     case "MINUS": return count - 1;
     default: return count;
@@ -60,6 +64,8 @@ store.subscribe(onChange);
 //    action - 함수를 부를 때 쓰는 두번째 parameter 혹은 argument
 //           - countModifier와 소통하기 위한 도구
 const countModifier = (count = 0, action) => {
+  console.log(count);
+
   switch(action.type) {
     case ADD: return count + 1;
     case MINUS: return count - 1;
@@ -92,7 +98,7 @@ minus.addEventListener("click", handleMinus);
 
 // 5. subscribe - store에 변화가 있을 때마다 호출되는 함수.
 const onChange = () => {
-  console.log(countStore.getState());
+  // console.log(countStore.getState());
   number.innerText = countStore.getState();  
 }
 
