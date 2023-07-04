@@ -34,6 +34,7 @@ const reducer = (state = [], action) => {
     
     // 입력되는 내용이 상위에 표시
 
+     // 질문
      // [{ text: action.text, id: Date.now() } ...state]; 이 부분 질문하기 - spread 연산자로 state를 하지 않을 경우 2개에서 리스트가 늘어나지 않는다.
      // state = [{ text: action.text, id: Date.now() } ...state]; 이렇게 적어야 하는 것 아닌가?
     case ADD_TODO: return [{ text: action.text, id: Date.now() }, ...state];
