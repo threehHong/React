@@ -7,6 +7,7 @@ type Props = {
   onDecrement: () => void;
 }
 
+// 구조분해 할당.
 function App({value, onIncrement, onDecrement}: Props) {
   return (
     <div className="App">
