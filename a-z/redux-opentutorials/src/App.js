@@ -1,17 +1,52 @@
 // Redux를 사용한 방식 ()
 
+/* 
+1. Provider
+- state를 제공할 component들을 감싸준다.
+- 속성으로 store={store}를 넣어줘야 한다
+  대괄호 안의 store는 createStore(reducer)를 담고 있는 변수
+- Provider 내부에 있는 컴포넌트들은 store를 사용할 수 있게 된다
+
+2. 
+
+*/
+
 import React, { useState } from 'react';
 import './style.css';
+import { createStore } from 'redux';
+import { Provider, useSelector, useDispatch, connect } from 'react-redux';
+
+function reducer(currentState, action) {
+  if (currentState === undefined) {
+    return {
+      number: 1
+    }
+  }
+
+  const newState = { ...currentState };
+
+  if(action.type === 'PLUS') {
+    newState.number++;
+  }
+
+  return newState;
+
+}
+
+
+const store = createStore(reducer);
 
 function App() {
-  const [number, setNumber] = useState(1);
+  /* const [number, setNumber] = useState(1); */
 
   return (
     <div id="container">
       <h1> Root </h1>
       <div id="grid"> 
-        <Left1 number={number} />
-        <Right1 />
+        <Provider store={store}>
+          <Left1 />
+          <Right1 />
+        </Provider>
       </div>
     </div>
   );
@@ -20,7 +55,7 @@ function App() {
 export default App;
 
 // Left component
-function Left1(props) {
+function Left1(props) {  
   return (
     <div>
       <h1> Left1 : </h1>
@@ -30,6 +65,8 @@ function Left1(props) {
 }
 
 function Left2(props) {
+  console.log('2');
+  
   return (
     <div>
       <h1> Left2 : </h1>
@@ -39,9 +76,13 @@ function Left2(props) {
 }
 
 function Left3(props) {
+  console.log('3');
+
+  const number = useSelector(state => state.number);
+
   return (
     <div>
-      <h1> Left3 :  </h1>
+      <h1> Left3 : {number} </h1>
     </div>
   )
 }
@@ -66,6 +107,9 @@ function Right2(props) {
 }
 
 function Right3(props) {
+
+  const dispatch = useDispatch();
+
   return (
     <div>
       <h1> Right3 </h1>
@@ -73,7 +117,7 @@ function Right3(props) {
         type="button"
         value="+"
         onClick={() => {
-          
+          dispatch({ type: 'PLUS' })
         }}
       />
     </div>
