@@ -27,4 +27,7 @@ const Home = () => {
     );
 };
 
-export default Home;
+function getCurrentState() {
+
+}
+

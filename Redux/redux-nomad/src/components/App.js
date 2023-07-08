@@ -7,12 +7,10 @@ import Detail from "../routes/Detail";
 
 function App() {
     return (
-
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/:id" element={<Detail />} />
         </Routes>
-
     )
 }
 
