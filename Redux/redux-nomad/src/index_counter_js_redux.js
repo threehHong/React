@@ -29,6 +29,7 @@ const handleMinus = () => {
 add.addEventListener('click', handlePlus);
 minus.addEventListener('click', handleMinus);
 
+// 4.
 const onChange = () => {
   console.log(store.getState());
   number.innerText = store.getState();
